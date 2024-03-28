@@ -2,6 +2,11 @@
 
 This data pipeline is designed to perform three main tasks: data transformation, data manipulation/aggregation, and data storage in SQLite database. This README provides setup and usage instructions to run the data pipeline effectively.
 
+ ## Flow Diagram
+
+ ![screenshot](docs/Flow_Diagram.png)
+
+ ## Data Pipeline Steps
    1. Data Transformation - merge user data and sales data, extract weather related information (method/data_transformation.py)
    2. Data Manipulation/aggregation - performed manipulations and aggregations on the merged data(method/data_manipulation.py)
    3. Visualization - monthly and quaterly sales trend reports present in "/report" folder (method/data_manipulation.py)
@@ -23,6 +28,10 @@ This data pipeline is designed to perform three main tasks: data transformation,
     ```  
  3. Run command - python app.py 
 
- ## Flow Diagram
+ ## Data Visualization
 
- ![screenshot](doc/Flow_Diagram.png)
+### Monthly Sales Trends
+ ![screenshot](docs/monthly_sales_trends.png)
+
+### Quaterly Sales Trends
+ ![screenshot](docs/quaterly_sales_trends.png)
