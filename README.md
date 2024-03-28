@@ -26,7 +26,7 @@ This data pipeline is designed to perform three main tasks: data transformation,
       
       These can be accessed using sales.db file that is created in the project folder.
       ```
-   5. Files are stored in the /data folder
+   5. Files are stored in the "/data" folder
 
 ## Running the code
  1. Clone this repo on your local and change to the project directory `cd data_pipeline`  
