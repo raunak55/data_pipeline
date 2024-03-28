@@ -22,3 +22,6 @@ This data pipeline is designed to perform three main tasks: data transformation,
 
     ```  
  3. Run command - python app.py 
+
+ ## Flow Diagram
+ ![screenshot](Flow_Diagram.png)
