@@ -16,10 +16,18 @@ This data pipeline is designed to perform three main tasks: data transformation,
    3. Visualization - monthly and quaterly sales trend reports present in "/report" folder (method/data_manipulation.py)
    4. Data Storage - create and store aggregated data in RDBMS - SQLite (method/data_storage.py)
       ```text
-      Different table created in SQLite - users,sales_data,merged_user_data,top_selling_product,total_sales_per_customer
+      
+      Details of table created in SQLite as below :- 
+         users - For storing users data
+         sales_data - For storing sales data
+         merged_user_data - stores merged data from users and sales 
+         top_selling_product - stores data for top selling product
+         total_sales_per_customer - stores sales data per customer
+      
       These can be accessed using sales.db file that is created in the project folder.
       ```
-      
+   5. Files are stored in the /data folder
+
 ## Running the code
  1. Clone this repo on your local and change to the project directory `cd data_pipeline`  
  2. Set the below enviroment parameters :-
