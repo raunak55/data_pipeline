@@ -5,7 +5,7 @@ This data pipeline is designed to perform three main tasks: data transformation,
    1. data transformation - merge user data and sales data, extract weather related information
    2. data manipulation/aggregation - performed manipulations and aggregations on the merged data
    3. visualization - monthly and quaterly sales trend reports present in "/report" folder
-   4. data storage - create and store aggregated data
+   4. data storage - create and store aggregated data in RDBMS - SQLite
 
 ## Pre-requisites
  1. Python3 - this project was built using Python 3.11.4
