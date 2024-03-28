@@ -19,12 +19,12 @@ def manipulate_data():
     print(average_order_quantity_per_product)
     average_order_quantity_per_product.to_csv('data/average_order_quantity_per_product.csv')
 
-    # Assuming sales_data is a DataFrame with columns 'product_id' and 'quantity'
+    # Assuming df is a DataFrame with columns 'product_id' and 'quantity'
     top_selling_products = df.groupby('product_id')['quantity'].sum().sort_values(ascending=False).head(5)
     print(top_selling_products)
     top_selling_products.to_csv('data/top_selling_products.csv')
 
-    # Assuming sales_data is a DataFrame with columns 'customer_id' and 'quantity'
+    # Assuming df is a DataFrame with columns 'customer_id' and 'quantity'
     top_customers = df.groupby('customer_id')['quantity'].sum().sort_values(ascending=False).head(5)
     print(top_customers)
 

@@ -21,7 +21,9 @@ def fetch_user_data(url):
     response = requests.get(url)
     if response.status_code == 200:
         data = response.json()
-        return pd.DataFrame(data)
+        user_data_df = pd.DataFrame(data)
+        user_data_df.to_csv('data/user_data.csv',index=False)
+        return user_data_df
     else:
         print(f"Failed to fetch user data. Status code: {response.status_code}")
         return pd.DataFrame()
@@ -76,22 +78,32 @@ def data_transformation_method():
     final_data = transform_and_merge_sales_data(sales_data, user_data)
     print('-----final_data-----\n', final_data)
 
-    final_data['temperature'] = None
-    final_data['weather_conditions'] = None
+    location = 'London'
+    weather_data = fetch_weather_data(api_key, location)
+    for index, sale in final_data.iterrows():
+           
+        if weather_data:
+            temperature = weather_data['main']['temp']
+            weather_conditions = weather_data['weather'][0]['description']
+            final_data.at[index, 'temperature'] = temperature
+            final_data.at[index, 'weather_conditions'] = weather_conditions
 
-    with concurrent.futures.ThreadPoolExecutor() as executor:
-        futures = {executor.submit(fetch_weather_data_for_row, row): row for _, row in final_data.iterrows()}
-        for future in concurrent.futures.as_completed(futures):
-            row = futures[future]
-            try:
-                weather_data = future.result()
-                if weather_data:
-                    temperature = weather_data['main']['temp']
-                    weather_conditions = weather_data['weather'][0]['description']
-                    final_data.at[row.name, 'temperature'] = temperature
-                    final_data.at[row.name, 'weather_conditions'] = weather_conditions
-            except Exception as e:
-                print(f"Error fetching weather data: {e}")
+    #final_data['temperature'] = None
+    #final_data['weather_conditions'] = None
+
+    #with concurrent.futures.ThreadPoolExecutor() as executor:
+    #    futures = {executor.submit(fetch_weather_data_for_row, row): row for _, row in final_data.iterrows()}  
+    #    for future in concurrent.futures.as_completed(futures):
+    #        row = futures[future]
+    #        try:
+    #            weather_data = future.result()
+    #           if weather_data:
+    #                temperature = weather_data['main']['temp']
+    #                weather_conditions = weather_data['weather'][0]['description']
+    #                final_data.at[row.name, 'temperature'] = temperature
+    #                final_data.at[row.name, 'weather_conditions'] = weather_conditions
+    #        except Exception as e:
+    #            print(f"Error fetching weather data: {e}")
     
     final_data.to_csv('data/final_data.csv',index=False)
     end_time = datetime.now()
