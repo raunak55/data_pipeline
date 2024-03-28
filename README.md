@@ -4,7 +4,7 @@ This data pipeline is designed to perform three main tasks: data transformation,
 
  ## Flow Diagram
 
- ![screenshot](docs/Flow_Diagram.png)
+ ![screenshot](doc/Flow_Diagram.png)
 
  ## Data Pipeline Steps
    1. Data Transformation - merge user data and sales data, extract weather related information (method/data_transformation.py)
