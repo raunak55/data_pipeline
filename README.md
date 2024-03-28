@@ -31,7 +31,7 @@ This data pipeline is designed to perform three main tasks: data transformation,
  ## Data Visualization
 
 ### Monthly Sales Trends
- ![screenshot](docs/monthly_sales_trends.png)
+ ![screenshot](report/monthly_sales_trends.png)
 
 ### Quaterly Sales Trends
- ![screenshot](docs/quaterly_sales_trends.png)
+ ![screenshot](report/quaterly_sales_trends.png)
